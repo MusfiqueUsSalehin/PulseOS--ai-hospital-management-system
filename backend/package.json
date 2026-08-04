@@ -3,8 +3,8 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "start": "bun run src/server.ts",
-    "dev": "nodemon --exec bun src/server.ts"
+    "start": "tsx src/server.ts",
+    "dev": "nodemon --exec tsx src/server.ts"
   },
   "devDependencies": {
     "@types/bun": "latest",
@@ -12,15 +12,19 @@
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/morgan": "^1.9.10",
-    "nodemon": "^3.1.14"
+    "nodemon": "^3.1.14",
+    "tsx": "^4.23.5"
   },
   "peerDependencies": {
     "typescript": "^5"
   },
   "dependencies": {
+    "better-auth": "^1.6.26",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "dotenv": "^16.4.7",
-    "express": "^5.0.1"
+    "express": "^5.0.1",
+    "mongodb": "^7.5.0",
+    "mongoose": "^9.9.1"
   }
 }

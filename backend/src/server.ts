@@ -13,6 +13,7 @@ import cookieParser from "cookie-parser";
 
 
 import morgan from "morgan";
+import { connectDB } from "./config/db";
 
 // Load environment variables from .env file
 dotenv.config();
@@ -73,6 +74,13 @@ app.use((err: any, req: Request, res: Response, next: any) => {
 });
 
 // Start the server and listen on the specified port
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
+
+connectDB().then(() => {
+    app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`)
+});
+})
+
+.catch((error) => {
+    console.error("Failed to connect to the database:", error);
 });
