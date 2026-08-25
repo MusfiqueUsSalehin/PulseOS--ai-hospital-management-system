@@ -17,7 +17,7 @@ import { connectDB } from "./config/db";
 import { toNodeHandler } from "better-auth/node";
 import { auth } from "./lib/auth";
 import { fromNodeHeaders } from "better-auth/node";
-
+import userRouter from "./routes/user";
 
 
 
@@ -82,6 +82,10 @@ app.get("/api/me", async (req, res) => {
     });
 	return res.json(session);
 });
+
+
+
+app.use("/api/users", userRouter);
 
 
 //Global error handler
